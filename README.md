@@ -84,6 +84,9 @@ pnpm lint
 # Format code
 pnpm format
 
+# Run tests
+pnpm test
+
 # Preview production build
 pnpm preview
 ```
