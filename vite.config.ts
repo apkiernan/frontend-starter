@@ -13,6 +13,11 @@ export default defineConfig({
 		react(),
 		tsconfigpaths(),
 		tailwind(),
-		!isTest && TanStackRouterVite(),
+		!isTest &&
+			TanStackRouterVite({
+				target: 'react',
+				routeFileIgnorePattern: '.test.ts(x)$',
+				routeFileIgnorePrefix: '-',
+			}),
 	],
 });
