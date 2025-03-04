@@ -8,14 +8,19 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import { createFileRoute } from '@tanstack/react-router'
+
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as HomeRouteImport } from './routes/home/route'
+
+// Create Virtual Routes
+
+const HomeRouteLazyImport = createFileRoute('/home')()
 
 // Create/Update Routes
 
-const HomeRouteRoute = HomeRouteImport.update({
+const HomeRouteLazyRoute = HomeRouteLazyImport.update({
   id: '/home',
   path: '/home',
   getParentRoute: () => rootRoute,
@@ -29,7 +34,7 @@ declare module '@tanstack/react-router' {
       id: '/home'
       path: '/home'
       fullPath: '/home'
-      preLoaderRoute: typeof HomeRouteImport
+      preLoaderRoute: typeof HomeRouteLazyImport
       parentRoute: typeof rootRoute
     }
   }
@@ -38,16 +43,16 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/home': typeof HomeRouteRoute
+  '/home': typeof HomeRouteLazyRoute
 }
 
 export interface FileRoutesByTo {
-  '/home': typeof HomeRouteRoute
+  '/home': typeof HomeRouteLazyRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/home': typeof HomeRouteRoute
+  '/home': typeof HomeRouteLazyRoute
 }
 
 export interface FileRouteTypes {
@@ -60,11 +65,11 @@ export interface FileRouteTypes {
 }
 
 export interface RootRouteChildren {
-  HomeRouteRoute: typeof HomeRouteRoute
+  HomeRouteLazyRoute: typeof HomeRouteLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  HomeRouteRoute: HomeRouteRoute,
+  HomeRouteLazyRoute: HomeRouteLazyRoute,
 }
 
 export const routeTree = rootRoute
@@ -81,7 +86,7 @@ export const routeTree = rootRoute
       ]
     },
     "/home": {
-      "filePath": "home/route.tsx"
+      "filePath": "home/route.lazy.tsx"
     }
   }
 }
