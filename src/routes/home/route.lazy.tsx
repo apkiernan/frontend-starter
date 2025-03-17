@@ -1,6 +1,5 @@
 import { createLazyFileRoute } from '@tanstack/react-router';
-
-import { useTranslation } from '@/i18n/useTranslation';
+import { useTranslation } from 'react-i18next';
 
 export const Route = createLazyFileRoute('/home')({
 	component: Index,
