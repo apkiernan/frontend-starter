@@ -16,7 +16,6 @@ export default defineConfig({
 		!isTest &&
 			TanStackRouterVite({
 				target: 'react',
-				routeFileIgnorePattern: '.test.ts(x)$',
 				routeFileIgnorePrefix: '-',
 			}),
 	],

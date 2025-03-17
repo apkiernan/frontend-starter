@@ -13,6 +13,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
+		"@tanstack/react-form": "^1.0.5",
 		"@tanstack/react-query": "^5.66.9",
 		"@tanstack/react-router": "^1.111.11",
 		"i18next": "^24.2.2",

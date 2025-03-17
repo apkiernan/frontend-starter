@@ -13,4 +13,5 @@ export default i18n
 		interpolation: {
 			escapeValue: false,
 		},
+		ns: ['dashboard'],
 	});
